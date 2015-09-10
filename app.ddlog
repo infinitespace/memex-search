@@ -1,0 +1,146 @@
+provider_info(
+    @key
+    provider_id text,
+    @key
+    provider_name text,
+    @navigable
+    city text,
+    @navigable
+    agency text,
+    @navigable
+    agency_name text,
+    ad_url text,
+    @navigable
+    @searchable
+    phone_0 text,
+    @navigable
+    @searchable
+    phone_1 text,
+    @navigable
+    @searchable
+    phone_2 text,
+    @navigable
+    incall_outcall text,
+    @navigable
+    email text,
+    @navigable
+    service text,
+    @navigable
+    services_delivered_as_promised text,
+    @navigable
+    on_time text,
+    @navigable
+    availability text,
+    @navigable
+    porn_star text,
+    @navigable
+    real_photo text,
+    photo_accurate text,
+    @navigable
+    ethnicity text,
+    @navigable
+    age text,
+    @navigable
+    hair_color text
+).
+
+isagency(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    is_there_a_receptionist_or_someone_else_involved boolean,
+    features text[]
+).
+
+ispicturereal(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    is_the_provider_the_same_as_the_picture boolean,
+    features text[]
+).
+
+isdrug(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    true_or_false boolean,
+    features text[]
+).
+
+isunderage(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    true_or_false boolean,
+    # @navigable
+    features text[]
+).
+
+isabuse(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    true_or_false boolean,
+    features text[]
+).
+
+isunwilling(
+    id text,
+    @key
+    doc_id text,
+    @navigable
+    true_or_false boolean,
+    features text[]
+).
+
+@source
+review_content(
+  @key
+  id text,
+  @searchable
+  text text
+).
+
+review_to_ads(
+    @key
+    doc_id text,
+    ads_docid_list text[]
+).
+
+provider_review(
+    @key
+    doc_id text,
+    @references(relation="provider_info", column="provider_id", alias="provider")
+    provider_id text,
+    provider_name text
+).
+
+@extraction
+index_all(
+    @key
+    @references(relation="review_content", column="id", alias="review")
+    docid text,
+    @references(relation="isdrug", column="doc_id", alias="is_drug")
+    isdrug_id text,
+    @references(relation="isunderage", column="doc_id", alias="is_underage")
+    isunderage_id text,
+    @references(relation="isabuse", column="doc_id", alias="is_abuse")
+    isabuse_id text,
+    @references(relation="isunwilling", column="doc_id", alias="is_unwilling")
+    isunwilling_id text,
+    @references(relation="provider_review", column="doc_id", alias="provider")
+    provider_id text,
+    @references(relation="review_to_ads", column="doc_id", alias="ads")
+    ads_id text,
+    @references(relation="isagency", column="doc_id", alias="agency")
+    isagency_id text,
+    @references(relation="ispicturereal", column="doc_id", alias="picture")
+    ispicturereal_id text
+).
+

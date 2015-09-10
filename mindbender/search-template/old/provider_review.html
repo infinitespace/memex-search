@@ -1,0 +1,14 @@
+<div ng-if="extraction">
+<div>
+    <strong>{{extraction.provider.provider_name}} in {{extraction.provider.city}}</strong>
+    <p show-raw-data="extraction.provider" level="1"></p>
+</div>
+
+<div ng-if="!searchResult.highlight['text']">
+    <strong class="text-muted">has review:</strong>
+    <blockquote>
+        {{extraction.review.text}}
+        <small>{{extraction.review.id}}</small>
+    </blockquote>
+</div>
+</div>

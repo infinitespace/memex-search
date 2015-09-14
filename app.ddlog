@@ -13,15 +13,10 @@ provider_info(
     @navigable
     @searchable
     phone_0 text,
-    @navigable
-    @searchable
     phone_1 text,
-    @navigable
-    @searchable
     phone_2 text,
     @navigable
     incall_outcall text,
-    @navigable
     email text,
     @navigable
     service text,
@@ -32,8 +27,7 @@ provider_info(
     @navigable
     availability text,
     @navigable
-    porn_star text,
-    @navigable
+    is_porn_star text,
     real_photo text,
     photo_accurate text,
     @navigable
@@ -49,7 +43,7 @@ isagency(
     @key
     doc_id text,
     @navigable
-    is_there_a_receptionist_or_someone_else_involved boolean,
+    is_there_a_receptionist_or_someone_else_involved text,
     features text[]
 ).
 
@@ -58,7 +52,7 @@ ispicturereal(
     @key
     doc_id text,
     @navigable
-    is_the_provider_the_same_as_the_picture boolean,
+    is_the_provider_the_same_as_the_picture text,
     features text[]
 ).
 
@@ -67,7 +61,7 @@ isdrug(
     @key
     doc_id text,
     @navigable
-    true_or_false boolean,
+    is_the_provider_on_drug text,
     features text[]
 ).
 
@@ -76,7 +70,7 @@ isunderage(
     @key
     doc_id text,
     @navigable
-    true_or_false boolean,
+    is_the_provider_underage text,
     # @navigable
     features text[]
 ).
@@ -86,7 +80,7 @@ isabuse(
     @key
     doc_id text,
     @navigable
-    true_or_false boolean,
+    is_there_any_physical_abuse text,
     features text[]
 ).
 
@@ -95,16 +89,16 @@ isunwilling(
     @key
     doc_id text,
     @navigable
-    true_or_false boolean,
+    is_the_provider_unwilling_to_be_there text,
     features text[]
 ).
 
 @source
 review_content(
-  @key
-  id text,
-  @searchable
-  text text
+    @key
+    id text,
+    @searchable
+    text text
 ).
 
 review_to_ads(
@@ -116,7 +110,7 @@ review_to_ads(
 provider_review(
     @key
     doc_id text,
-    @references(relation="provider_info", column="provider_id", alias="provider")
+    @references(relation="provider_info", column="provider_id", alias="_")
     provider_id text,
     provider_name text
 ).
@@ -126,21 +120,20 @@ index_all(
     @key
     @references(relation="review_content", column="id", alias="review")
     docid text,
-    @references(relation="isdrug", column="doc_id", alias="is_drug")
+    @references(relation="isdrug", column="doc_id", alias="_1_")
     isdrug_id text,
-    @references(relation="isunderage", column="doc_id", alias="is_underage")
+    @references(relation="isunderage", column="doc_id", alias="_2_")
     isunderage_id text,
-    @references(relation="isabuse", column="doc_id", alias="is_abuse")
+    @references(relation="isabuse", column="doc_id", alias="_3_")
     isabuse_id text,
-    @references(relation="isunwilling", column="doc_id", alias="is_unwilling")
+    @references(relation="isunwilling", column="doc_id", alias="_4_")
     isunwilling_id text,
     @references(relation="provider_review", column="doc_id", alias="provider")
     provider_id text,
     @references(relation="review_to_ads", column="doc_id", alias="ads")
     ads_id text,
-    @references(relation="isagency", column="doc_id", alias="agency")
+    @references(relation="isagency", column="doc_id", alias="_5_")
     isagency_id text,
-    @references(relation="ispicturereal", column="doc_id", alias="picture")
+    @references(relation="ispicturereal", column="doc_id", alias="_6_")
     ispicturereal_id text
 ).
-

@@ -6,6 +6,7 @@
 # initialize database and launch a PostgreSQL instance at a random port
 initdb -D pgdb
 postgres -D pgdb -p ${PGPORT:=$RANDOM} &
+createdb -p $PGPORT memex-reviews
 export DEEPDIVE_DB_URL=postgresql://localhost:$PGPORT/memex-reviews
 # you could also modify db.url file
 
@@ -17,7 +18,13 @@ deepdive initdb
 # define which port to use for your own Elasticsearch instance launched internally by mindbender
 export ELASTICSEARCH_BASEURL=http://localhost:9${RANDOM:0:3}
 # index the database for search
+
+# if existing indices, need to clean them first:
+# mindbender search drop
+# rm indices under search/
+
 mindbender search update
+
 # launch your own search GUI on a random port
 PORT=$RANDOM mindbender search gui
 ```

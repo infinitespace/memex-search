@@ -8,48 +8,48 @@
 	<table class="table table-striped table-hover">
           <tr>
             <td style="width:350px">Is the provider underage?</td>
-            <td>{{extraction.is_underage.true_or_false}}</td>
+            <td>{{extraction._2_.is_the_provider_underage}}</td>
           </tr>
           <tr>
             <td>Was the provider on drugs?</td>
-            <td>{{extraction.is_drug.true_or_false}}</td>
+            <td>{{extraction._1_.is_the_provider_on_drug}}</td>
           </tr>
           <tr>
             <td>Was the provider have evidence of physical abuse?</td>
-            <td>{{extraction.is_abuse.true_or_false}}</td>
+            <td>{{extraction._3_.is_there_any_physical_abuse}}</td>
           </tr>
           <tr>
             <td>Was the provider unwilling to be there?</td>
-            <td>{{extraction.is_unwilling.true_or_false}}</td>
+            <td>{{extraction._4_.is_the_provider_unwilling_to_be_there}}</td>
           </tr>
 	  <tr>
             <td>Was there a receptionist or someone else involved?</td>
-            <td>{{extraction.agency.true_or_false}}</td>
+            <td>{{extraction._5_.is_there_a_receptionist_or_someone_else_involved}}</td>
           </tr>
 	  <tr>
             <td>Was the provider the same as the picture?</td>
-            <td>{{extraction.picture.true_or_false}}</td>
+            <td>{{extraction._6_.is_the_provider_the_same_as_the_picture}}</td>
           </tr>
         </table>
 	<div style="margin-left: 6px; margin-right: 6px; margin-top: 10px; margin-bottom: 10px;">
 	<button class="btn btn-default btn-xs" btn-checkbox ng-model="isDetailShown2">show provider information</button>
 	<div class="panel panel-default" collapse="!isDetailShown2">
 		<table class="table table-striped table-hover">
-	     <tr><td style="width:200px">name</td><td>{{extraction.provider.provider.provider_name}}</td></tr>
-             <tr><td>TER ID</td><td>{{extraction.provider.provider.provider_id}}</td></tr>
-             <tr><td>city</td><td>{{extraction.provider.provider.city}}</td></tr>
-             <tr><td>age</td><td>{{extraction.provider.provider.age}}</td></tr>
-             <tr><td>ethnicity</td><td>{{extraction.provider.provider.ethnicity}}</td></tr>
-             <tr><td>hair color</td><td>{{extraction.provider.provider.hair_color}}</td></tr>
-             <tr><td>employer</td><td>{{extraction.provider.provider.agency}}</td></tr>
-             <tr><td>work time</td><td>{{extraction.provider.provider.availability}}</td></tr>
-             <tr><td>name</td><td>{{extraction.provider.provider.provider_name}}</td></tr>
-             <tr><td>incall or outcall</td><td>{{extraction.provider.provider.incall_outcall}}</td></tr>
-             <tr><td>service type</td><td>{{extraction.provider.provider.service}}</td></tr>
-             <tr><td>is porn star or not</td><td>{{extraction.provider.provider.porn_star}}</td></tr>
-             <tr><td>phone</td><td>{{extraction.provider.provider.phone_0}}</td></tr>
-             		<tr><td>advertisement url</td><td>{{extraction.provider.provider.ad_url}}</td></tr>
-             		<tr><td>email</td><td>{{extraction.provider.provider.email}}</td></tr>
+	     <tr><td style="width:200px">name</td><td>{{extraction.provider._.provider_name}}</td></tr>
+             <tr><td>TER ID</td><td>{{extraction.provider._.provider_id}}</td></tr>
+             <tr><td>city</td><td>{{extraction.provider._.city}}</td></tr>
+             <tr><td>age</td><td>{{extraction.provider._.age}}</td></tr>
+             <tr><td>ethnicity</td><td>{{extraction.provider._.ethnicity}}</td></tr>
+             <tr><td>hair color</td><td>{{extraction.provider._.hair_color}}</td></tr>
+             <tr><td>employer</td><td>{{extraction.provider._.agency}}</td></tr>
+             <tr><td>work time</td><td>{{extraction.provider._.availability}}</td></tr>
+             <tr><td>name</td><td>{{extraction.provider._.provider_name}}</td></tr>
+             <tr><td>incall or outcall</td><td>{{extraction.provider._.incall_outcall}}</td></tr>
+             <tr><td>service type</td><td>{{extraction.provider._.service}}</td></tr>
+             <tr><td>is porn star or not</td><td>{{extraction.provider._.porn_star}}</td></tr>
+             <tr><td>phone</td><td>{{extraction.provider._.phone_0}}</td></tr>
+             		<tr><td>advertisement url</td><td>{{extraction.provider._.ad_url}}</td></tr>
+             		<tr><td>email</td><td>{{extraction.provider._.email}}</td></tr>
              		<tr><td>ads docid list</td><td>{{extraction.ads.ads_docid_list}}</td></tr>
 		</table>
 	</div>

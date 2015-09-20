@@ -101,6 +101,14 @@ review_content(
     text text
 ).
 
+review_date(
+    @key
+    id text,
+    @navigable
+    date text,
+    provider_url text
+)
+
 review_to_ads(
     @key
     doc_id text,
@@ -120,6 +128,8 @@ index_all(
     @key
     @references(relation="review_content", column="id", alias="review")
     docid text,
+    @references(relation="review_date", column="id", alias="posted")
+    date_id text,
     @references(relation="isdrug", column="doc_id", alias="_1_")
     isdrug_id text,
     @references(relation="isunderage", column="doc_id", alias="_2_")

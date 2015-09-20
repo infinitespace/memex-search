@@ -17,6 +17,10 @@ deepdive sql "truncate review_content"
 sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/escort_review_content.tsv |
 deepdive sql "COPY review_content        FROM STDIN"
 
+deepdive sql "truncate review_date"
+sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/escort_review_date.tsv |
+deepdive sql "COPY review_date        FROM STDIN"
+
 deepdive sql "truncate provider_info"
 sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/escort_review_info.tsv |
 deepdive sql "COPY provider_info        FROM STDIN"

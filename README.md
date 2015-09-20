@@ -5,15 +5,9 @@
 
 # initialize database and launch a PostgreSQL instance at a random port
 initdb -D pgdb
-<<<<<<< HEAD
-postgres -D pgdb -p ${PGPORT:=$RANDOM} &
-createdb -p $PGPORT memex-reviews
-export DEEPDIVE_DB_URL=postgresql://localhost:$PGPORT/memex-reviews
-=======
 postgres -D pgdb -p 5322 
 createdb -p 5322 memex-reviews
 export DEEPDIVE_DB_URL=postgresql://localhost:5322/memex-reviews
->>>>>>> 6ac6942288e262c6f95bfaea7c9abcb5decaf8b0
 # you could also modify db.url file
 
 # create tables, load data with input/init.sh

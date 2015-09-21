@@ -8,27 +8,27 @@
 	<table class="table table-striped table-hover">
           <tr>
             <td style="width:350px">Is the provider underage?</td>
-            <td>{{extraction.is_underage.inference_result}}</td>
+            <td>{{extraction._2_.is_the_provider_underage}}</td>
           </tr>
           <tr>
             <td>Was the provider on drugs?</td>
-            <td>{{extraction.is_drug.inference_result}}</td>
+            <td>{{extraction._1_.is_the_provider_on_drug}}</td>
           </tr>
           <tr>
             <td>Was the provider have evidence of physical abuse?</td>
-            <td>{{extraction.is_abuse.inference_result}}</td>
+            <td>{{extraction._3_.is_there_any_physical_abuse}}</td>
           </tr>
           <tr>
             <td>Was the provider unwilling to be there?</td>
-            <td>{{extraction.is_unwilling.inference_result}}</td>
+            <td>{{extraction._4_.is_the_provider_unwilling_to_be_there}}</td>
           </tr>
 	  <tr>
             <td>Was there a receptionist or someone else involved?</td>
-            <td>{{extraction.is_agency.inference_result}}</td>
+            <td>{{extraction._5_.is_there_a_receptionist_or_someone_else_involved}}</td>
           </tr>
 	  <tr>
             <td>Was the provider the same as the picture?</td>
-            <td>{{extraction.is_picture_real.inference_result}}</td>
+            <td>{{extraction._6_.is_the_provider_the_same_as_the_picture}}</td>
           </tr>
         </table>
 	<div style="margin-left: 6px; margin-right: 6px; margin-top: 10px; margin-bottom: 10px;">

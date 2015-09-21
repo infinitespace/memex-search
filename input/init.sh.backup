@@ -11,7 +11,7 @@ sanitize() {
     pv --line-mode --size="$(wc -l <"$1")"
 }
 
-SCALE=debug
+SCALE=small
 
 deepdive sql "truncate review_content"
 sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/escort_review_content.tsv |
@@ -56,30 +56,6 @@ deepdive sql "COPY isagency FROM STDIN"
 deepdive sql "truncate ispicturereal"
 sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/ispicturereal.tsv.noquote |
 deepdive sql "COPY ispicturereal FROM STDIN"
-
-deepdive sql "truncate isdrug_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/isdrug_is_true_inference.tsv.noquote |
-deepdive sql "COPY isdrug_expectation FROM STDIN"
-
-deepdive sql "truncate isunderage_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/isunderage_is_true_inference.tsv.noquote |
-deepdive sql "COPY isunderage_expectation FROM STDIN"
-
-deepdive sql "truncate isabuse_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/isabuse_is_true_inference.tsv.noquote |
-deepdive sql "COPY isabuse_expectation FROM STDIN"
-
-deepdive sql "truncate isunwilling_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/isunwilling_is_true_inference.tsv.noquote |
-deepdive sql "COPY isunwilling_expectation FROM STDIN"
-
-deepdive sql "truncate isagency_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/isagency_is_true_inference.tsv.noquote |
-deepdive sql "COPY isagency_expectation FROM STDIN"
-
-deepdive sql "truncate ispicturereal_expectation"
-sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/ispicturereal_is_true_inference.tsv.noquote |
-deepdive sql "COPY ispicturereal_expectation FROM STDIN"
 
 deepdive sql "truncate index_all"
 sanitize /lfs/local/0/wenbo/memex/escort-review/out/$SCALE/indexall.tsv.noquote |

@@ -43,7 +43,7 @@ isagency_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_there_a_receptionist_or_someone_else_involved text,
     features text[],
     category text,
     @searchable
@@ -55,7 +55,7 @@ ispicturereal_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_the_provider_the_same_as_the_picture text,
     features text[],
     category text,
     @searchable
@@ -67,7 +67,7 @@ isdrug_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_the_provider_on_drug text,
     features text[],
     category text,
     @searchable
@@ -79,7 +79,7 @@ isunderage_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_the_provider_underage text,
     # @navigable
     features text[],
     category text,
@@ -92,7 +92,7 @@ isabuse_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_there_any_physical_abuse text,
     features text[],
     category text,
     @searchable
@@ -104,7 +104,7 @@ isunwilling_expectation(
     @key
     doc_id text,
     @navigable
-    is_true text,
+    is_the_provider_unwilling_to_be_there text,
     features text[],
     category text,
     @searchable
@@ -116,7 +116,7 @@ isagency(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_there_a_receptionist_or_someone_else_involved text,
     features text[]
 ).
 
@@ -125,7 +125,7 @@ ispicturereal(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_the_provider_the_same_as_the_picture text,
     features text[]
 ).
 
@@ -134,7 +134,7 @@ isdrug(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_the_provider_on_drug text,
     features text[]
 ).
 
@@ -143,7 +143,7 @@ isunderage(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_the_provider_underage text,
     # @navigable
     features text[]
 ).
@@ -153,7 +153,7 @@ isabuse(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_there_any_physical_abuse text,
     features text[]
 ).
 
@@ -162,7 +162,7 @@ isunwilling(
     @key
     doc_id text,
     @navigable
-    inference_result text,
+    is_the_provider_unwilling_to_be_there text,
     features text[]
 ).
 
@@ -204,21 +204,21 @@ index_all(
     @references(relation="review_content", column="id", alias="review")
     docid text,
     date_id text,
-    @references(relation="isdrug", column="doc_id", alias="is_drug")
+    @references(relation="isdrug", column="doc_id", alias="_1_")
     isdrug_id text,
-    @references(relation="isunderage", column="doc_id", alias="is_underage")
+    @references(relation="isunderage", column="doc_id", alias="_2_")
     isunderage_id text,
-    @references(relation="isabuse", column="doc_id", alias="is_abuse")
+    @references(relation="isabuse", column="doc_id", alias="_3_")
     isabuse_id text,
-    @references(relation="isunwilling", column="doc_id", alias="is_unwilling")
+    @references(relation="isunwilling", column="doc_id", alias="_4_")
     isunwilling_id text,
-    # @references(relation="provider_review", column="doc_id", alias="provider")
+    @references(relation="provider_review", column="doc_id", alias="provider")
     provider_id text,
     @references(relation="review_to_ads", column="doc_id", alias="ads")
     ads_id text,
-    @references(relation="isagency", column="doc_id", alias="is_agency")
+    @references(relation="isagency", column="doc_id", alias="_5_")
     isagency_id text,
-    @references(relation="ispicturereal", column="doc_id", alias="is_picture_real")
+    @references(relation="ispicturereal", column="doc_id", alias="_6_")
     ispicturereal_id text
 ).
 
